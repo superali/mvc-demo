@@ -6,13 +6,13 @@ namespace App\Controllers;
  * php version 8.0
  */
 
-class Posts
+class Posts \Core\Controller
 {   
     /**
      * Show index page
      * @return void
      */
-    public function index(){
+    public function indexAction(){
         echo "heloo index post";
     }
 
@@ -20,7 +20,9 @@ class Posts
      * Show Add new post page
      * @return void
      */
-    public function addNew(){
+    public function addNewAction(){
         echo "heloo add new post";
     }
+    protected before(){echo " before";}
+    protected after(){echo " after";}
 }

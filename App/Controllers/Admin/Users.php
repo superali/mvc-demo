@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-use \Core\View;
 /**
- * Home controller
+ * Users controller
  * php version 8.0
  */
 
-class Home extends \Core\Controller
+class Users extends \Core\Controller
 {   
     /**
      * Show index page
      * @return void
      */
     public function indexAction(){
-        View::render('Home/index.php');
+        echo "heloo index users";
     }
 
     protected before(){echo " before";}

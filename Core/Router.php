@@ -142,6 +142,6 @@ class Router
 		if(array_key_exists('namespace',$this->params)){
 			$namespace .=$this->params['namespace'].'\\';
 		}
-		return $namespace
+		return $namespace;
 	}
 }

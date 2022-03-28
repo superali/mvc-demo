@@ -6,7 +6,7 @@ namespace App\Controllers;
  * php version 8.0
  */
 
-class Posts \Core\Controller
+class Posts extends \Core\Controller
 {   
     /**
      * Show index page
@@ -23,6 +23,6 @@ class Posts \Core\Controller
     public function addNewAction(){
         echo "heloo add new post";
     }
-    protected before(){echo " before";}
-    protected after(){echo " after";}
+    protected function before(){echo " before";}
+    protected function after(){echo " after";}
 }

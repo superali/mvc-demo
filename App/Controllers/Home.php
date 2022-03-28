@@ -3,11 +3,12 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Models\Post;
+
 /**
  * Home controller
  * php version 8.0
  */
-
 class Home extends \Core\Controller
 {   
     /**
@@ -15,9 +16,13 @@ class Home extends \Core\Controller
      * @return void
      */
     public function indexAction(){
-        View::render('Home/index.php');
+        var_dump(Post::getAll());
+        View::render('Home/index.php',[
+            'username'=>'ali',
+            'friends'=>['badr','omer']
+        ]);
     }
 
-    protected before(){echo " before";}
-    protected after(){echo " after";}
+    protected function before(){echo " before";}
+    protected function after(){echo " after";}
 }

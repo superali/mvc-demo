@@ -14,9 +14,9 @@ class Users extends \Core\Controller
      * @return void
      */
     public function indexAction(){
+        
         echo "heloo index users";
     }
-
-    protected before(){echo " before";}
-    protected after(){echo " after";}
+    protected function before(){echo " before";}
+    protected function after(){echo " after";}
 }

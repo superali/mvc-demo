@@ -1,0 +1,42 @@
+version: '3'
+services:
+  # postgres:
+  #   image: 'postgres:latest'
+  #   environment:
+  #     - POSTGRES_PASSWORD=postgres_password
+  redis:
+    image: 'redis:latest'
+  nginx:
+    depends_on:
+      - api
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '80:80'
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    volumes:
+      - /vendor
+      - ./App:/App
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - DBUSER=ali
+      - DBHOST=db
+      - DBPASS=ali
+      - DBNAME=test
+      - DBPORT=3306
+ 
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=ali
+      - MYSQL_PASSWORD=ali
